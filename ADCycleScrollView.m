@@ -109,6 +109,8 @@ static CGFloat pageControlHeight = 30.0f;
 
 - (void)reloadData{
     totalPages = [_datasource numberOfPages];
+    currentPage  = totalPages<=currentPage?totalPages-1:currentPage;
+
     [self.totalViews removeAllObjects];
     for (int i= 0; i<totalPages; i++) {
         [self.totalViews addObject: [_datasource pageAtIndex:i]];
